@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link rel="icon" href="favicon.ico">
+    
+    <title>Displaying the date to a page with AngularJS</title>
+    
+    <link href="dist/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="dist/bootstrap-3.3.7/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+	<style>
+	body {padding-top: 80px;}
+	h3 {border-bottom: 1px solid #efefef;font-weight: bold;padding-bottom: 20px;}
+	h4  {color: #09c; font-size: 62px;font-weight: bold;}
+	p {font-size: 16px;}
+	</style>
+</head>
+<body ng-app="app" ng-controller="appCtrl">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4 col-lg-offset-4 text-center">
+        <h3 class="text-uppercase">Displaying the date with AngularJS</h3>
+        
+        	<p><small>Display the day month and year</small></p> 
+            <h4 class="text-uppercase">{{date | date:'dd-MM-yyyy'}}</h4>
+            
+            <hr />
+            
+            <p><small>Display the month day and year</small></p> 
+            <h4 class="text-uppercase">{{date | date:'MM-dd-yyyy'}}</h4>
+            
+            <hr />
+            
+            <p><small>Display the day moth and short hand year</small></p> 
+            <h4 class="text-uppercase">{{date | date:'dd-MM-yy'}}</h4>
+            
+            <hr />
+            
+            <p><small>Display the current year</small></p>   
+            <h4 class="text-uppercase">{{date | date:'yyyy'}}</h4>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script src="dist/angular-1.4.3/angular.min.js"></script>
+<script src="dist/jquery-1.11.3/jquery-1.11.3.min.js"></script>
+<script src="dist/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+<script src="dist/bootstrap-3.3.7/js/ie10-viewport-bug-workaround.js"></script>
+
+<script>
+'use strict';
+var app = angular.module('app', ['appControllers',]);
+
+var appControllers = angular.module('appControllers', []);
+appControllers.controller('appCtrl', ['$scope',function($scope) {
+	$scope.date = new Date();
+}]);
+</script>
